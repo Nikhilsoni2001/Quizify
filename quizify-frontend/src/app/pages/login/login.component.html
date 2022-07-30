@@ -1,1 +1,52 @@
-<p>login works!</p>
+<div class="container-fluid">
+  <mat-card>
+    <div class="row col-md-6">
+      <div class="text-center">
+        <img src="../../../assets/logo.png" alt="Quizify" />
+      </div>
+      <h3 class="text-center">Login Here</h3>
+
+      <form (ngSubmit)="loginUser()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Username</mat-label>
+          <input
+            required
+            name="username"
+            [(ngModel)]="credentials.username"
+            matInput
+            placeholder="Enter here..."
+          />
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input
+            required
+            name="password"
+            [(ngModel)]="credentials.password"
+            [type]="hide ? 'password' : 'text'"
+            matInput
+            placeholder="Enter here..."
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <div class="text-center">
+          <button mat-raised-button class="login" type="submit">Login</button>
+          <button style="margin-left: 20px" mat-raised-button color="basic">
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  </mat-card>
+</div>
