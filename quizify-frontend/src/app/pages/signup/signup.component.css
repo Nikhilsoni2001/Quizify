@@ -7,6 +7,10 @@
   align-items: center;
 }
 
+mat-card {
+  padding: 20px;
+}
+
 img {
   height: 80px;
 }
