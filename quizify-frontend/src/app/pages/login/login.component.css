@@ -23,12 +23,12 @@ form {
   width: 25vw;
 }
 
-button.register {
+button.login {
   background-color: #5467eb;
   color: white;
   transition: 0.5s all ease;
 }
 
-button.register:hover {
+button.login:hover {
   background-color: #2d46ea;
 }

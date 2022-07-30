@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -39,6 +40,7 @@ import { HomeComponent } from './pages/home/home.component';
     HttpClientModule,
     MatSnackBarModule,
     MatCardModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
