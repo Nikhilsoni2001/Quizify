@@ -26,15 +26,13 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    this.userService.addUser(this.user).subscribe(
-      (data) => {
-        console.log(data);
-        alert('success');
+    this.userService.addUser(this.user).subscribe({
+      next: (res) => {
+        console.log(res);
       },
-      (error) => {
-        console.error(error);
-        alert('failed');
-      }
-    );
+      error: (err) => {
+        console.log(err.message);
+      },
+    });
   }
 }

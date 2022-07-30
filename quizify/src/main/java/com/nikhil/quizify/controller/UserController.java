@@ -13,7 +13,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/user")
 @CrossOrigin("*")
-public class UserController {
+public class UserController {x
 
     @Autowired
     private UserService userService;
