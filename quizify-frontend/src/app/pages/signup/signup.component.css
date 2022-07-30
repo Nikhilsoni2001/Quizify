@@ -1,0 +1,30 @@
+.container-fluid {
+  height: 100vh;
+  background-color: #f8f1ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  height: 80px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+form {
+  width: 35vw;
+}
+
+button.register {
+  background-color: #5467eb;
+  color: white;
+  transition: 0.5s all ease;
+}
+
+button.register:hover {
+  background-color: #2d46ea;
+}
