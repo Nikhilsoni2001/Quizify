@@ -9,6 +9,23 @@
   </button>
   <span>Quizify</span>
   <span class="example-spacer"></span>
-  <a mat-icon-button routerLink="/login">Login</a>
-  <a mat-icon-button class="mr20 ml20" routerLink="/signup">Register</a>
+  <a mat-icon-button *ngIf="!isLoggedIn" routerLink="/login">Login</a>
+  <a mat-icon-button class="mr20 ml20" *ngIf="!isLoggedIn" routerLink="/signup"
+    >Register</a
+  >
+  <a
+    mat-icon-button
+    class="ml20"
+    *ngIf="isLoggedIn && user"
+    routerLink="/signup"
+    >{{ user.username }}</a
+  >
+  <a
+    (click)="logout()"
+    mat-icon-button
+    class="mr20 ml20"
+    *ngIf="isLoggedIn"
+    routerLink="/signup"
+    >Logout</a
+  >
 </mat-toolbar>
