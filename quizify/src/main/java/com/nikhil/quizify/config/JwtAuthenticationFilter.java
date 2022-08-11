@@ -28,6 +28,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         final String reqToken = httpServletRequest.getHeader("Authorization");
+        System.out.println(reqToken);
         String username = null, jwtToken = null;
 
         // Validating token
@@ -43,7 +44,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 System.out.println("Some error occurred!!");
             }
         } else {
-            logger.error("Invalid Token!!");
+            logger.error("Invalid Token!!, Bearer is not present");
         }
 
         // Validated
