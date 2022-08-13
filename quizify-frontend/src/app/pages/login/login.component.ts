@@ -49,16 +49,21 @@ export class LoginComponent implements OnInit {
 
     this.loginService.generateToken(this.credentials).subscribe({
       next: (res: any) => {
+        console.log(res);
+
         this.loginService.loginUser(res.token);
         this.loginService.getCurrentUser().subscribe({
           next: (user: any) => {
             this.loginService.setUser(user);
-            console.log(user);
 
             if (this.loginService.getUserRole() === 'ADMIN') {
-              this.route.navigate(['/admin']);
-            } else if (this.loginService.getUserRole() === 'NORMAL') {
-              this.route.navigate(['/user-dashboard']);
+              this.route.navigate(['admin']);
+              this.loginService.loginStatusSubject.next(true);
+            } else if (this.loginService.getUserRole() === 'REGULAR') {
+              console.log('NORMAL');
+
+              this.route.navigate(['user-dashboard']);
+              this.loginService.loginStatusSubject.next(true);
             } else {
               this.loginService.logout();
             }
