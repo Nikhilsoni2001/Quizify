@@ -5,6 +5,7 @@ import com.nikhil.quizify.model.User;
 import com.nikhil.quizify.model.UserRole;
 import com.nikhil.quizify.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
@@ -18,14 +19,17 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     // Creating User
     @PostMapping("/")
     public User createUser(@RequestBody User user) throws Exception {
         Set<UserRole> roles = new HashSet<>();
-
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setImageUrl("default.png");
         Role role = new Role();
-        role.setRoleId(45L);
+        role.setRoleId(2L);
         role.setRoleName("NORMAL");
 
         UserRole userRole = new UserRole();

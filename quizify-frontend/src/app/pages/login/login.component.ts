@@ -24,9 +24,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   loginUser() {
-    console.log(this.credentials.username);
-    console.log(this.credentials.password);
-
     if (
       this.credentials.username.trim() === '' ||
       this.credentials.username === null
@@ -49,8 +46,6 @@ export class LoginComponent implements OnInit {
 
     this.loginService.generateToken(this.credentials).subscribe({
       next: (res: any) => {
-        console.log(res);
-
         this.loginService.loginUser(res.token);
         this.loginService.getCurrentUser().subscribe({
           next: (user: any) => {
@@ -59,9 +54,7 @@ export class LoginComponent implements OnInit {
             if (this.loginService.getUserRole() === 'ADMIN') {
               this.route.navigate(['admin']);
               this.loginService.loginStatusSubject.next(true);
-            } else if (this.loginService.getUserRole() === 'REGULAR') {
-              console.log('NORMAL');
-
+            } else if (this.loginService.getUserRole() === 'NORMAL') {
               this.route.navigate(['user-dashboard']);
               this.loginService.loginStatusSubject.next(true);
             } else {
