@@ -16,13 +16,12 @@ export class LoginService {
   }
 
   // Generate token
-  public generateToken(loginData) {
+  public generateToken(loginData: any) {
     return this.http.post(`${baseUrl}/generate-token`, loginData);
   }
 
   public loginUser(token) {
     localStorage.setItem('token', token);
-    this.loginStatusSubject.next(true);
     return true;
   }
 
@@ -35,7 +34,6 @@ export class LoginService {
 
   public logout() {
     localStorage.removeItem('token');
-    this.loginStatusSubject.next(false);
     return true;
   }
 
