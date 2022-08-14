@@ -3,7 +3,7 @@ package com.nikhil.quizify.controller;
 import com.nikhil.quizify.model.Role;
 import com.nikhil.quizify.model.User;
 import com.nikhil.quizify.model.UserRole;
-import com.nikhil.quizify.service.UserService;
+import com.nikhil.quizify.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ import java.util.Set;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
