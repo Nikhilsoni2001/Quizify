@@ -7,6 +7,12 @@
   align-items: center;
 }
 
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 mat-card {
   padding: 20px;
 }

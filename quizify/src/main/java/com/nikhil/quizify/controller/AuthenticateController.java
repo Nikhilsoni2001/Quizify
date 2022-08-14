@@ -1,6 +1,7 @@
 package com.nikhil.quizify.controller;
 
 import com.nikhil.quizify.config.JwtUtils;
+import com.nikhil.quizify.helper.UserNotFoundException;
 import com.nikhil.quizify.model.JwtRequest;
 import com.nikhil.quizify.model.JwtResponse;
 import com.nikhil.quizify.model.User;
@@ -12,7 +13,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -35,9 +35,9 @@ public class AuthenticateController {
     public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
         try {
             authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());
-        } catch (UsernameNotFoundException e) {
+        } catch (UserNotFoundException e) {
             e.printStackTrace();
-            throw new Exception("User not found!!");
+            throw new UserNotFoundException();
         }
 
         UserDetails userDetails = this.userDetailsService.loadUserByUsername(jwtRequest.getUsername());
