@@ -4,10 +4,12 @@ import com.nikhil.quizify.model.exam.Question;
 import com.nikhil.quizify.repository.QuestionRepository;
 import com.nikhil.quizify.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+@Service
 public class QuestionServiceImpl implements QuestionService {
 
     @Autowired
