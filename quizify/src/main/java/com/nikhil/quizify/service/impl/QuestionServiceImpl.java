@@ -1,6 +1,7 @@
 package com.nikhil.quizify.service.impl;
 
 import com.nikhil.quizify.model.exam.Question;
+import com.nikhil.quizify.model.exam.Quiz;
 import com.nikhil.quizify.repository.QuestionRepository;
 import com.nikhil.quizify.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,11 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public Question getQuestion(Long questionId) {
         return this.questionRepository.findById(questionId).get();
+    }
+
+    @Override
+    public Set<Question> getQuestionsOfQuiz(Quiz quiz) {
+        return this.questionRepository.findByQuiz(quiz);
     }
 
     @Override
